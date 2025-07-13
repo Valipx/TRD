@@ -18,8 +18,7 @@ struct LazySeg {
         if (lazy[v] == 0) return;
         t[v].v += lazy[v];
         if (l != r) {
-            lazy[v*2] += lazy[v];
-            lazy[v*2+1] += lazy[v];
+            lazy[v*2] += lazy[v]; lazy[v*2+1] += lazy[v];
         }
         lazy[v] = 0;
     }
