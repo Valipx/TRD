@@ -1,6 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
-
 struct Manacher {
     vector<int> d1, d2;
     Manacher(const string &s) {

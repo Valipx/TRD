@@ -1,6 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
-
 vi pi(const string& s) {
 	vi p(sz(s));
 	forn(i,1,sz(s)) {

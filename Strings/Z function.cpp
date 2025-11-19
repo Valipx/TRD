@@ -1,6 +1,3 @@
-#include<bits/stdc++.h>
-using namespace std;
-
 vi Z(const string& S) {
 	vi z(sz(S));
 	int l = -1, r = -1;
