@@ -1,13 +1,14 @@
-const int mod = 1000000007;
+#define ll long long
+const int m = 1000000007;
 struct mint {
     ll x;
     mint() : x(0) {}
-    mint(ll x) : x((x%mod+mod)%mod) {}
-    mint& fix() { x = (x%mod+mod)%mod; return *this; }
+    mint(ll x) : x((x%m+m)%m) {}
+    mint& fix() { x = (x%m+m)%m; return *this; }
     mint operator-() const { return mint(0) - *this; }
-    mint& operator+=(const mint& a) { if ((x+=a.x)>=mod) x-=mod; return *this; }
-    mint& operator-=(const mint& a) { if ((x+=mod-a.x)>=mod) x-=mod; return *this; }
-    mint& operator*=(const mint& a) { (x*=a.x)%=mod; return *this; }
+    mint& operator+=(const mint& a) { if ((x+=a.x)>=m) x-=m; return *this; }
+    mint& operator-=(const mint& a) { if ((x+=m-a.x)>=m) x-=m; return *this; }
+    mint& operator*=(const mint& a) { (x*=a.x)%=m; return *this; }
     mint operator+(const mint& a) const { return mint(*this) += a; }
     mint operator-(const mint& a) const { return mint(*this) -= a; }
     mint operator*(const mint& a) const { return mint(*this) *= a; }
