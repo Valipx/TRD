@@ -53,7 +53,7 @@ struct LazySeg {
 
     void upd(int v, int l, int r, int ql, int qr, const Tag& val) {
         if (l >= qr || r <= ql) return;
-        if (ql <= l && r <= qr) { push(v); return; }
+        if (ql <= l && r <= qr) { apply(v, val); return; }
         push(v);
         int m = (l + r) >> 1;
         upd(v*2, l, m, ql, qr, val);
