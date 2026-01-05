@@ -35,7 +35,7 @@ struct LazySeg {
     vector<Tag> lazy;
 
     LazySeg(int n): n(n), t(4*n), lazy(4*n) {}
-    LazySeg(vector<int> &a): LazySeg(a.size()) { build(a); }
+    LazySeg(vector<Node> &a): LazySeg(a.size()) { build(a); }
 
     void apply(int x, const Tag& val) { t[x].apply(val); lazy[x].apply(val); }
 
@@ -44,8 +44,8 @@ struct LazySeg {
         lazy[v] = Tag();
     }
 
-    void build(vector<int> &a, int v, int l, int r) {
-        if (l == r - 1) { if(l < (int)a.size()) t[v] = Node(a[l]); return; }
+    void build(vector<Node> &a, int v, int l, int r) {
+        if (l == r - 1) { if(l < (int)a.size()) t[v] = a[l]; return; }
         int m = (l + r) >> 1;
         build(a, v*2, l, m); build(a, v*2+1, m, r);
         t[v] = t[v*2] + t[v*2+1];
@@ -69,7 +69,7 @@ struct LazySeg {
         return qry(v*2, l, m, ql, qr) + qry(v*2+1, m, r, ql, qr);
     }
 
-    void build(vector<int>& a) { build(a, 1, 0, n); }
+    void build(vector<Node>& a) { build(a, 1, 0, n); }
     void update(int l, int r, Tag val) { upd(1, 0, n, l, r, val); }
     Node query(int l, int r) { return qry(1, 0, n, l, r); }
 };
